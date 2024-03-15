@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .counter {
+            position: absolute;
+            left: 50%;
+            translate: -50%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(128, 128, 128, 0.473);
+            border-radius: 10px;
+
+            #one,
+            #two {
+                font-size: 60px;
+                font-weight: 600;
+                font-family: Gilroy;
+            }
+
+            .reset {
+                cursor: pointer;
+            }
+        }
+
+        .field {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url(./img/ball.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            cursor: grab;
+            transition: .5s ease;
+            z-index: 3;
+
+            &:active {
+                cursor: grabbing;
+            }
+        }
+
+        .one {
+            position: absolute;
+            top: 243px;
+            left: 60px;
+            width: 62px;
+            height: 157px;
+            /* background-color: rgba(255, 255, 255, 0); */
+            background-color: rgba(0, 0, 255, 0.274);
+        }
+
+        .two {
+            position: absolute;
+            top: 243px;
+            right: 60px;
+            width: 62px;
+            height: 157px;
+            /* background-color: rgba(255, 255, 255, 0); */
+            background-color: rgba(0, 0, 255, 0.274);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="counter">
+        <div id="one">0</div>
+        <div class="reset">
+            <img src="./img/reset.png" alt="">
+        </div>
+        <div id="two">0</div>
+    </div>
+
+    <img class="field"
+        src="https://sportishka.com/uploads/posts/2022-11/1667495705_13-sportishka-com-p-maket-futbolnogo-polya-vkontakte-14.png"
+        alt="">
+    <section class="one"></section>
+    <div class="ball" draggable="true"></div>
+    <section class="two"></section>
+
+    <canvas id="confetti" style="position: absolute; display: none;"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
